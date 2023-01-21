@@ -1,7 +1,12 @@
 package service;
 
 
+import Db.DataClass;
 import model.PayInvoice;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 
 public class PayInvoiceServiceImpl implements PayInvoiceService {
@@ -18,7 +23,26 @@ public class PayInvoiceServiceImpl implements PayInvoiceService {
 //        return credentials;
 //    }
 
+    private Map<Long, PayInvoice> invoiceMap = DataClass.getInvoices();
 
+    @Override
+    public List<PayInvoice> getAllInvoices(){
+        return new ArrayList<>(invoiceMap.values());
+    }
+
+
+    @Override
+    public PayInvoice getInvoice(Long id){
+
+        return invoiceMap.get(id);
+    }
+
+    @Override
+    public PayInvoice addInvoice(PayInvoice payInvoice){
+        payInvoice.setId(invoiceMap.size() + 1L);
+        invoiceMap.put(payInvoice.getId(),payInvoice);
+        return payInvoice;
+    }
 
     @Override
     public void printInvoice(PayInvoice payInvoice) {

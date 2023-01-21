@@ -2,7 +2,7 @@ package model;
 
 public class PayInvoice {
 
-    private int id;
+    private Long id;
     private double amount;
     private int currency;
     private int transactionId;
@@ -13,7 +13,7 @@ public class PayInvoice {
     public PayInvoice() {
     }
 
-    public PayInvoice(int id, double amount, int currency, int transactionId, String agent, String pbmb, String refNumber) {
+    public PayInvoice(Long id, double amount, int currency, int transactionId, String agent, String pbmb, String refNumber) {
         this.id = id;
         this.amount = amount;
         this.currency = currency;
@@ -23,11 +23,11 @@ public class PayInvoice {
         this.refNumber = refNumber;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
